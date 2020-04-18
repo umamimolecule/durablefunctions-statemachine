@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umamimolecule.DurableFunctionsStateMachine", "src\Umamimolecule.DurableFunctionsStateMachine\Umamimolecule.DurableFunctionsStateMachine.csproj", "{E996E769-C44A-44C8-A957-1F52D5E1F883}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umamimolecule.DurableFunctionsStateMachine.Tests", "test\Umamimolecule.DurableFunctionsStateMachine.Tests\Umamimolecule.DurableFunctionsStateMachine.Tests.csproj", "{F15CBCF1-5264-4315-B3A0-44481F6B68D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umamimolecule.DurableFunctionsStateMachine.Tests", "test\Umamimolecule.DurableFunctionsStateMachine.Tests\Umamimolecule.DurableFunctionsStateMachine.Tests.csproj", "{F15CBCF1-5264-4315-B3A0-44481F6B68D0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{31702965-4A3A-4C15-A64F-1EB373F2B144}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Umamimolecule.DurableFunctionExample", "src\Umamimolecule.DurableFunctionExample\Umamimolecule.DurableFunctionExample.csproj", "{944DD03F-2B60-426A-A4D8-89B0E690A5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{F15CBCF1-5264-4315-B3A0-44481F6B68D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F15CBCF1-5264-4315-B3A0-44481F6B68D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F15CBCF1-5264-4315-B3A0-44481F6B68D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944DD03F-2B60-426A-A4D8-89B0E690A5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944DD03F-2B60-426A-A4D8-89B0E690A5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944DD03F-2B60-426A-A4D8-89B0E690A5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944DD03F-2B60-426A-A4D8-89B0E690A5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

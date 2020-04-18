@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace Umamimolecule.DurableFunctionsStateMachine
 {
     public class StateMachine<TState, TTrigger> : IStateMachine<TState, TTrigger>
     {
-        private TState state;
         private readonly Dictionary<TState, StateConfiguration<TState, TTrigger>> configuration = new Dictionary<TState, StateConfiguration<TState, TTrigger>>();
 
         public StateMachine()
@@ -15,10 +15,10 @@ namespace Umamimolecule.DurableFunctionsStateMachine
 
         public StateMachine(TState initialState)
         {
-            this.state = initialState;
+            this.SetInitialState(initialState);
         }
 
-        public TState State => this.state;
+        public TState State { get; private set; }
 
         public Action<TState, TTrigger> OnUnhandledTrigger { get; set; }
 
@@ -31,23 +31,23 @@ namespace Umamimolecule.DurableFunctionsStateMachine
 
         public async Task FireAsync(TTrigger trigger)
         {
-            if (!this.configuration[this.state].Transitions.TryGetValue(trigger, out TState nextState))
+            if (!this.configuration[this.State].Transitions.TryGetValue(trigger, out TState nextState))
             {
                 if (this.OnUnhandledTrigger != null)
                 {
-                    this.OnUnhandledTrigger(this.state, trigger);
+                    this.OnUnhandledTrigger(this.State, trigger);
                     return;
                 }
 
-                throw new UnhandledTriggerException(state, trigger);
+                throw new UnhandledTriggerException(State, trigger);
             }
 
-            if (this.configuration[this.state].ExitTask != null)
+            if (this.configuration[this.State].ExitTask != null)
             {
-                await this.configuration[this.state].ExitTask();
+                await this.configuration[this.State].ExitTask();
             }
 
-            this.state = nextState;
+            this.State = nextState;
 
             if (this.configuration[nextState].EntryTask != null)
             {
@@ -57,7 +57,7 @@ namespace Umamimolecule.DurableFunctionsStateMachine
 
         public void SetInitialState(TState state)
         {
-            this.state = state;
+            this.State = state;
         }
     }
 }
