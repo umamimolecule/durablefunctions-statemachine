@@ -13,11 +13,6 @@ namespace Umamimolecule.DurableFunctionExample
 
         private StateMachine<State, Trigger> machine;
 
-        public Orchestrator()
-        {
-
-        }
-
         [FunctionName(FunctionName)]
         public async Task Run(
             [OrchestrationTrigger]IDurableOrchestrationContext context,
